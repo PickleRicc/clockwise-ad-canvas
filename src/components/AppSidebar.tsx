@@ -7,7 +7,6 @@ import {
   Settings, 
   UserPlus, 
   LogOut,
-  Menu,
   PanelLeftOpen,
   PanelLeftClose
 } from 'lucide-react';
@@ -75,7 +74,7 @@ export function AppSidebar() {
         </div>
       </SidebarFooter>
       
-      <SidebarTrigger asChild>
+      <SidebarTrigger>
         <Button 
           variant="outline" 
           size="icon" 
