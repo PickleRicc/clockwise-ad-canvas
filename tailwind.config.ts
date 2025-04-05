@@ -72,11 +72,11 @@ export default {
           100: '#e0ecfb',
           200: '#c7ddf7',
           300: '#9fc7ef',
-          400: '#70a8e6',
+          400: '#64a1d8', // Updated to #64a1d8
           500: '#4f85db',
           600: '#3a67ce',
           700: '#3254bd',
-          800: '#0A2342', // Primary brand color (dark navy blue)
+          800: '#0A2342',
           900: '#091d36',
           950: '#05101e',
         }
