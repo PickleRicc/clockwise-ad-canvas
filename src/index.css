@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 217 33% 17%;
 
-    --primary: 215 60% 20%;
+    --primary: 215 60% 15%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 24% 93%;
@@ -23,8 +23,8 @@
     --muted: 210 24% 93%;
     --muted-foreground: 215 15% 47%;
 
-    --accent: 44 76% 54%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 210 60% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -37,12 +37,12 @@
 
     --sidebar-background: 217 49% 10%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 215 60% 20%;
+    --sidebar-primary: 215 60% 15%;
     --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 44 76% 54%;
-    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-accent: 210 60% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 44 76% 54%;
+    --sidebar-ring: 210 60% 50%;
   }
 
   .dark {
@@ -64,8 +64,8 @@
     --muted: 215 32% 23%;
     --muted-foreground: 215 20% 65.1%;
 
-    --accent: 44 76% 54%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 210 60% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -93,7 +93,7 @@
   }
   
   .btn-primary {
-    @apply bg-gold hover:bg-gold-400 text-black font-medium;
+    @apply bg-clockwise-400 hover:bg-clockwise-500 text-white font-medium;
   }
   
   .card-dashboard {

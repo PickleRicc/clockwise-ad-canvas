@@ -76,23 +76,9 @@ export default {
           500: '#4f85db',
           600: '#3a67ce',
           700: '#3254bd',
-          800: '#2d479a',
-          900: '#0A2342', // Primary brand color
-          950: '#0c1d3e',
-        },
-        gold: {
-          DEFAULT: '#E6AF2E',
-          50: '#FCF5E8',
-          100: '#F9ECD1',
-          200: '#F3D9A3',
-          300: '#EEC675',
-          400: '#E9B347',
-          500: '#E6AF2E', // Accent color
-          600: '#C1911D',
-          700: '#936E16',
-          800: '#644A0F',
-          900: '#362708',
-          950: '#1F1604'
+          800: '#0A2342', // Primary brand color (dark navy blue)
+          900: '#091d36',
+          950: '#05101e',
         }
       },
       borderRadius: {

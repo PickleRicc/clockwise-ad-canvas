@@ -38,7 +38,7 @@ export function AppSidebar() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <Sidebar className="border-r border-slate-800">
+    <Sidebar className="border-r border-clockwise-800">
       <SidebarHeader className="py-6 px-3 flex justify-center">
         <Logo />
       </SidebarHeader>
@@ -68,7 +68,7 @@ export function AppSidebar() {
           <LogOut className="w-5 h-5" />
           <span>Logout</span>
         </Link>
-        <div className="mt-4 px-4 py-3 rounded bg-gradient-to-r from-gold/20 to-gold/10">
+        <div className="mt-4 px-4 py-3 rounded bg-clockwise-800/50">
           <p className="text-xs text-gray-300">Need help?</p>
           <p className="text-xs text-gray-400 mt-1">Contact support@clockwise.capital</p>
         </div>
