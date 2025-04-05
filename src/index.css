@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -112,11 +113,11 @@
   }
   
   .nav-link-active {
-    @apply bg-white/10 text-white;
+    @apply text-white;
   }
   
   .nav-link-inactive {
-    @apply text-gray-300 hover:bg-white/10 hover:text-white;
+    @apply text-gray-300 hover:text-clockwise-400;
   }
   
   .bg-grid-pattern {

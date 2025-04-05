@@ -52,12 +52,14 @@ export function AppSidebar() {
                 key={item.name}
                 to={item.to}
                 className={`
-                  ${isActive(item.to) ? "nav-link nav-link-active" : "nav-link nav-link-inactive"}
+                  ${isActive(item.to) 
+                    ? "nav-link nav-link-active bg-clockwise-400/20" 
+                    : "nav-link nav-link-inactive hover:bg-clockwise-400/10"}
                   group transition-all duration-200
                 `}
               >
-                <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span>{item.name}</span>
+                <Icon className="w-5 h-5 group-hover:text-clockwise-400 transition-colors" />
+                <span className={isActive(item.to) ? "text-clockwise-400" : ""}>{item.name}</span>
               </Link>
             );
           })}
@@ -65,8 +67,8 @@ export function AppSidebar() {
       </SidebarContent>
       
       <SidebarFooter className="px-3 py-4">
-        <Link to="/" className="nav-link nav-link-inactive w-full group">
-          <LogOut className="w-5 h-5 group-hover:translate-x-[-2px] transition-transform" />
+        <Link to="/" className="nav-link nav-link-inactive w-full group hover:bg-clockwise-400/10">
+          <LogOut className="w-5 h-5 group-hover:text-clockwise-400 group-hover:translate-x-[-2px] transition-all" />
           <span>Logout</span>
         </Link>
         <div className="mt-4 px-4 py-3 rounded bg-clockwise-800/50 backdrop-blur-sm">
@@ -79,7 +81,7 @@ export function AppSidebar() {
         <Button 
           variant="outline" 
           size="icon" 
-          className="absolute right-0 translate-x-1/2 top-24 bg-clockwise-800 border-clockwise-700 hover:bg-clockwise-700 shadow-md"
+          className="absolute right-0 translate-x-1/2 top-24 bg-clockwise-400 border-clockwise-300 hover:bg-clockwise-500 text-white shadow-md"
         >
           <PanelLeftClose className="h-4 w-4 block sidebar-open:hidden" />
           <PanelLeftOpen className="h-4 w-4 hidden sidebar-open:block" />
