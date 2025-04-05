@@ -26,13 +26,10 @@ import {
 } from '@/components/ui/select';
 import {
   User,
-  Lock,
   Bell,
-  CreditCard,
   Link,
   Users,
   Database,
-  AlertCircle,
 } from 'lucide-react';
 
 const Settings = () => {
@@ -46,11 +43,10 @@ const Settings = () => {
       </header>
 
       <Tabs defaultValue="general" className="w-full">
-        <TabsList className="w-full max-w-md grid grid-cols-4">
+        <TabsList className="w-full max-w-md grid grid-cols-3">
           <TabsTrigger value="general">General</TabsTrigger>
           <TabsTrigger value="integrations">Integrations</TabsTrigger>
           <TabsTrigger value="team">Team</TabsTrigger>
-          <TabsTrigger value="billing">Billing</TabsTrigger>
         </TabsList>
         
         <TabsContent value="general" className="space-y-6 pt-6">
@@ -65,7 +61,7 @@ const Settings = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-full bg-clockwise-100 flex items-center justify-center text-clockwise-800 text-xl font-semibold">
-                    SJ
+                    EM
                   </div>
                   <div>
                     <Button variant="outline" size="sm">Change</Button>
@@ -75,17 +71,17 @@ const Settings = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" defaultValue="Sarah" />
+                    <Input id="firstName" defaultValue="Eli" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" defaultValue="Johnson" />
+                    <Input id="lastName" defaultValue="Mikel" />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" defaultValue="sarah@clockwisecapital.com" />
+                  <Input id="email" type="email" defaultValue="eli@clockwisecapital.com" />
                 </div>
                 
                 <div className="space-y-2">
@@ -166,7 +162,7 @@ const Settings = () => {
                     </div>
                     <div>
                       <h4 className="font-medium">Facebook Ads</h4>
-                      <p className="text-sm text-gray-500">Connected as Sarah Johnson</p>
+                      <p className="text-sm text-gray-500">Connected as Eli Mikel</p>
                     </div>
                   </div>
                   <Button variant="outline">Disconnect</Button>
@@ -179,7 +175,7 @@ const Settings = () => {
                     </div>
                     <div>
                       <h4 className="font-medium">Google Ads</h4>
-                      <p className="text-sm text-gray-500">Connected as sarah@clockwisecapital.com</p>
+                      <p className="text-sm text-gray-500">Connected as eli@clockwisecapital.com</p>
                     </div>
                   </div>
                   <Button variant="outline">Disconnect</Button>
@@ -283,11 +279,11 @@ const Settings = () => {
                 <div className="flex items-center justify-between p-4 border rounded-lg bg-gray-50">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-clockwise-100 flex items-center justify-center text-clockwise-800 font-semibold">
-                      SJ
+                      EM
                     </div>
                     <div>
-                      <h4 className="font-medium">Sarah Johnson</h4>
-                      <p className="text-sm text-gray-500">sarah@clockwisecapital.com</p>
+                      <h4 className="font-medium">Eli Mikel</h4>
+                      <p className="text-sm text-gray-500">eli@clockwisecapital.com</p>
                     </div>
                     <span className="bg-blue-100 text-blue-800 text-xs px-2.5 py-0.5 rounded">
                       Admin
@@ -363,141 +359,6 @@ const Settings = () => {
               </div>
               <div className="flex justify-end">
                 <Button variant="outline">Configure Permissions</Button>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        
-        <TabsContent value="billing" className="space-y-6 pt-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Subscription Plan</CardTitle>
-              <CardDescription>
-                Manage your subscription and billing details
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="p-4 bg-gold-50 border border-gold-100 rounded-lg">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="font-medium text-gold-900">Enterprise Plan</h4>
-                    <p className="text-sm text-gold-800">$999/month, billed annually</p>
-                  </div>
-                  <span className="bg-gold-200 text-gold-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                    Current Plan
-                  </span>
-                </div>
-                <div className="mt-4 text-sm text-gold-700">
-                  <p>Includes:</p>
-                  <ul className="list-disc list-inside mt-1">
-                    <li>Unlimited campaigns</li>
-                    <li>Advanced analytics</li>
-                    <li>All platform integrations</li>
-                    <li>Priority support</li>
-                    <li>Custom reporting</li>
-                  </ul>
-                </div>
-                <div className="mt-4 flex gap-2">
-                  <Button variant="outline" className="text-gold-900 border-gold-300 hover:bg-gold-50">
-                    Change Plan
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <h4 className="font-medium">Payment Method</h4>
-                <div className="flex items-center gap-4 p-4 border rounded-lg bg-gray-50">
-                  <div className="w-12 h-8 bg-blue-900 rounded flex items-center justify-center text-white text-xs font-bold">
-                    VISA
-                  </div>
-                  <div>
-                    <p className="font-medium">Visa ending in 4242</p>
-                    <p className="text-sm text-gray-500">Expires 12/2025</p>
-                  </div>
-                  <Button variant="ghost" size="sm" className="ml-auto">
-                    Edit
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <h4 className="font-medium">Billing History</h4>
-                <div className="border rounded-lg overflow-hidden">
-                  <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Date
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Amount
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Status
-                        </th>
-                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Invoice
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          Apr 1, 2025
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          $999.00
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Paid
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" className="text-clockwise-600 hover:text-clockwise-900">
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          Mar 1, 2025
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          $999.00
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Paid
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" className="text-clockwise-600 hover:text-clockwise-900">
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          Feb 1, 2025
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          $999.00
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Paid
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href="#" className="text-clockwise-600 hover:text-clockwise-900">
-                            Download
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               </div>
             </CardContent>
           </Card>
