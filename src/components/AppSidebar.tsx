@@ -19,6 +19,7 @@ import {
   SidebarHeader,
   SidebarTrigger
 } from '@/components/ui/sidebar';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type NavItem = {
   name: string;
@@ -35,6 +36,7 @@ const mainNav: NavItem[] = [
 
 export function AppSidebar() {
   const location = useLocation();
+  const isMobile = useIsMobile();
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -57,6 +59,7 @@ export function AppSidebar() {
                     : "nav-link nav-link-inactive hover:bg-clockwise-400/10"}
                   group transition-all duration-200
                 `}
+                onClick={() => isMobile ? document.querySelector('[data-mobile="true"]')?.dispatchEvent(new Event('close')) : null}
               >
                 <Icon className="w-5 h-5 group-hover:text-clockwise-400 transition-colors" />
                 <span className={isActive(item.to) ? "text-clockwise-400" : ""}>{item.name}</span>

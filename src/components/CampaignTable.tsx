@@ -20,6 +20,8 @@ import {
 import { Button } from '@/components/ui/button';
 import PlatformBadge from './PlatformBadge';
 import { Link } from 'react-router-dom';
+import { Card } from '@/components/ui/card';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Mock data
 interface Campaign {
@@ -105,9 +107,100 @@ const mockCampaigns: Campaign[] = [
 ];
 
 const CampaignTable: React.FC = () => {
+  const isMobile = useIsMobile();
+
+  // Mobile view - card based layout
+  if (isMobile) {
+    return (
+      <div className="space-y-4">
+        {mockCampaigns.map((campaign) => (
+          <Card key={campaign.id} className="p-4">
+            <div className="flex justify-between items-start mb-2">
+              <Link to={`/campaigns/${campaign.id}`} className="font-medium text-lg text-clockwise-500">
+                {campaign.name}
+              </Link>
+              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                campaign.status === 'active'
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-amber-100 text-amber-800'
+              }`}>
+                {campaign.status === 'active' ? 'Active' : 'Paused'}
+              </span>
+            </div>
+            
+            <div className="flex gap-1 flex-wrap mb-2">
+              {campaign.platforms.map((platform) => (
+                <PlatformBadge key={platform} platform={platform} showLabel={false} size="sm" />
+              ))}
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2 text-sm">
+              <div>
+                <p className="text-gray-500">Budget</p>
+                <p>{campaign.budget}</p>
+              </div>
+              <div>
+                <p className="text-gray-500">Date Range</p>
+                <p>{new Date(campaign.startDate).toLocaleDateString()}</p>
+                <p>{new Date(campaign.endDate).toLocaleDateString()}</p>
+              </div>
+              <div>
+                <p className="text-gray-500">Impressions</p>
+                <p>{campaign.impressions.toLocaleString()}</p>
+              </div>
+              <div>
+                <p className="text-gray-500">Clicks / CTR</p>
+                <p>{campaign.clicks.toLocaleString()} / {campaign.ctr}</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-2 mt-3 pt-3 border-t">
+              <Button variant="outline" size="sm" className="flex-1">
+                <Eye className="h-4 w-4 mr-1" />
+                View
+              </Button>
+              <Button variant="outline" size="sm" className="flex-1">
+                <Edit className="h-4 w-4 mr-1" />
+                Edit
+              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="px-2">
+                    <MoreHorizontal className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem>
+                    {campaign.status === 'active' ? (
+                      <>
+                        <PauseCircle className="mr-2 h-4 w-4 text-amber-600" />
+                        <span className="text-amber-600">Pause Campaign</span>
+                      </>
+                    ) : (
+                      <>
+                        <PlayCircle className="mr-2 h-4 w-4 text-green-600" />
+                        <span className="text-green-600">Activate Campaign</span>
+                      </>
+                    )}
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <Trash2 className="mr-2 h-4 w-4 text-red-600" />
+                    <span className="text-red-600">Delete</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </Card>
+        ))}
+      </div>
+    );
+  }
+
+  // Desktop view - table layout
   return (
     <div className="w-full">
-      <div className="rounded-md border bg-white">
+      <div className="rounded-md border bg-white overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
